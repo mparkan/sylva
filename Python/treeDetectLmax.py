@@ -25,9 +25,11 @@ Args:
 
 Example:
 
-    treeDetect.py "tree" 4 2 "E:/data/mnc/test" "E:/" 
+    treeDetectLmax.py "tree" 4 2 "E:/data/mnc/test" "E:/" 
 
 """
+
+
 
 from osgeo import gdal
 from osgeo import ogr
@@ -239,6 +241,13 @@ if __name__ == "__main__":
     'src': str(sys.argv[4]),
     'dst': str(sys.argv[5])
     }
+    
+    if not options['src'].endswith('/'):
+        options['src'] = options['src'] + '/' 
+        
+    if not options['dst'].endswith('/'):
+        options['dst'] = options['dst'] + '/'         
+        
     if os.path.isdir(options['src']) == False:
         main(options)
     if os.path.isdir(options['src']) == True:
