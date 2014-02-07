@@ -1,4 +1,4 @@
-forestry
+sylva
 ========
 
 Various tools to process forestry related data using Python and R.
